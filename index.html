@@ -78,10 +78,39 @@ button.ghost { background: transparent; color: var(--accent); box-shadow: inset 
 .work a { font-family: var(--display); font-weight: 500; font-size: 1.1rem; }
 .work p { margin: 0.15rem 0 0; font-size: 1rem; color: var(--muted); }
 .more p { margin: 0 0 0.5rem; color: var(--muted); font-size: 1rem; }
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 1.5rem; }
+.menu { position: fixed; z-index: 20; top: calc(env(safe-area-inset-top, 0px) + 14px); right: calc(env(safe-area-inset-right, 0px) + 14px); }
+.menu summary { list-style: none; cursor: pointer; width: 44px; height: 44px; border-radius: 12px; background: var(--surface); display: grid; place-content: center; gap: 5px; box-shadow: 0 1px 0 var(--line); }
+.menu summary::-webkit-details-marker { display: none; }
+.menu summary span { display: block; width: 18px; height: 2px; border-radius: 2px; background: var(--fg); transition: transform .2s, opacity .2s; }
+.menu[open] summary span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu[open] summary span:nth-child(2) { opacity: 0; }
+.menu[open] summary span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.menu nav { position: absolute; right: 0; top: 52px; min-width: 13.5rem; background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 0.5rem; display: grid; box-shadow: 0 12px 32px rgba(0,0,0,.12); }
+.menu nav a { font-family: var(--display); font-size: 1rem; text-decoration: none; color: var(--fg); padding: 0.55rem 0.75rem; border-radius: 8px; }
+.menu nav a:hover, .menu nav a:focus-visible { background: var(--surface); color: var(--accent); }
+.menu hr { border: 0; border-top: 1px solid var(--line); margin: 0.35rem 0.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .menu summary span { transition: none; } }
 footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); border-top: 1px solid var(--line); padding-top: 1.25rem; }
 </style>
 </head>
 <body>
+
+<details class="menu" id="menu">
+  <summary aria-label="Menu"><span></span><span></span><span></span></summary>
+  <nav aria-label="Site">
+    <a href="#teach">Teach with me</a>
+    <a href="#work">Selected work</a>
+    <a href="https://calendly.com/bilalg/bilal-25mins" rel="noopener">Book a 25-min call</a>
+    <a href="#contact">Contact</a>
+    <hr>
+    <a href="https://www.linkedin.com/in/bilalghalib" rel="noopener">LinkedIn</a>
+    <a href="https://adab.studio" rel="noopener">Adab Studio</a>
+    <a href="https://bloom.pm" rel="noopener">Bloom</a>
+    <a href="https://blog.bilalghalib.com/blog/">Blog</a>
+  </nav>
+</details>
 
 <div class="wrap">
   <header class="hero">
@@ -95,10 +124,10 @@ footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); b
 
   <section>
     <p>I'm an Iraqi American living in Lille with my family. For about twenty years I've been learning and teaching by doing, together with people from Detroit and Boston to Baghdad, Beirut and Basra. In 2009 I co-founded All Hands Active, Ann Arbor's first hackerspace, and two years later Fikra Space, the first hackerspace in Baghdad. After that I co-founded <a href="https://bloom.pm" rel="noopener">Bloom</a>, an accelerator for social entrepreneurs that has worked with more than a thousand founders across sixteen countries in Southwest Asia and North Africa. Along the way I designed curriculum for the UN in Iraq, and I wrote my master's thesis in Learning Sciences at Université de Paris on how Lebanese social entrepreneurs grew after the Beirut port explosion.</p>
-    <p>These days I build tools at Adab Studio that help people think and read for themselves, rather than hand their thinking over to AI. Cursive is a writing companion that strengthens your thinking and then gets out of the way, Versed is a bilingual Arabic and English reader, and Sourced shows you what an AI is assuming about you. What I love most, though, is being in a room with people and helping them find what is beautiful in them and bring it into the world.</p>
+    <p>These days I build tools at <a href="https://adab.studio" rel="noopener">Adab Studio</a> that help people think and read for themselves, rather than hand their thinking over to AI. <a href="https://cursivegpt.com" rel="noopener">Cursive</a> is a writing companion that strengthens your thinking and then gets out of the way, Versed is a bilingual Arabic and English reader, and Sourced shows you what an AI is assuming about you. What I love most, though, is being in a room with people and helping them find what is beautiful in them and bring it into the world.</p>
   </section>
 
-  <section class="offer" aria-labelledby="offer-h">
+  <section class="offer" id="teach" aria-labelledby="offer-h">
     <h2 id="offer-h">What I can offer right now</h2>
     <p>I teach Data Protection in the Master's in International Relations and Risk Management at the Université Catholique de Lille. It's a highly interactive, case-study based course in which students follow one fictional organisation through a semester of real decisions, and I would be glad to bring it, or something like it, to your school.</p>
     <ul>
@@ -109,7 +138,7 @@ footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); b
     <p>My way of facilitating is people-first: I listen to the room and adapt as we go, so each session ends up fitting the people who are in it. My French is still growing, so I teach in English, and I'm glad to come to you in Lille or in Paris.</p>
   </section>
 
-  <section aria-labelledby="work-h">
+  <section id="work" aria-labelledby="work-h">
     <h2 id="work-h">Selected work</h2>
     <ul class="work">
       <li><span class="yr">2024–</span><div><a href="https://cursivegpt.com" rel="noopener">Cursive</a><p>A writing companion that strengthens your thinking, then gets out of the way.</p></div></li>
@@ -126,9 +155,9 @@ footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); b
     <p>This month I'm teaching the last sessions of my Data Protection course, which ends in December, and I'm reaching out to schools around Lille about teaching with them next year. I'm also getting Cursive ready for its first real users, and slowly finding my way back to sharing my work in public after a few quiet years.</p>
   </section>
 
-  <section class="contact" aria-labelledby="contact-h">
+  <section class="contact" id="contact" aria-labelledby="contact-h">
     <h2 id="contact-h">Get in touch</h2>
-    <p>The easiest way to reach me is by email, and I'm always glad to hear from people.</p>
+    <p>The easiest way to reach me is by email, and I'm always glad to hear from people. If you'd rather talk, <a href="https://calendly.com/bilalg/bilal-25mins" rel="noopener">book a 25-minute call</a>.</p>
     <div class="email-row">
       <span class="email" id="email" data-u="gb" data-d="moc.bilahglalib">bg [at] bilalghalib [dot] com</span>
       <button type="button" id="copy" hidden>Copy</button>
@@ -153,6 +182,11 @@ footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); b
 
 <script>
 (function () {
+  var menu = document.getElementById('menu');
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { menu.open = false; }); });
+  document.addEventListener('click', function (e) { if (menu.open && !menu.contains(e.target)) menu.open = false; });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') menu.open = false; });
+
   // The address is stored reversed and only assembled in the browser, so simple scrapers never see it.
   var el = document.getElementById('email');
   var rev = function (s) { return s.split('').reverse().join(''); };
