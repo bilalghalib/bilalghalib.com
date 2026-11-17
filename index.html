@@ -9,9 +9,9 @@
 <meta name="robots" content="index, follow, noai, noimageai">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Reem+Kufi:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Aref+Ruqaa:wght@400;700&display=swap">
 <style>
-/* Layout: one reading column; the hero pairs the greeting with a warm portrait; his name in Kufic sits above. */
+/* Layout: one reading column; the hero pairs the greeting with his name in Ruqaa calligraphy; no photo. */
 :root {
   --bg: #F2F5F1;
   --surface: #E4EBE3;
@@ -22,7 +22,7 @@
   --line: #CBD6CC;
   --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --body: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --kufi: "Reem Kufi", "Geeza Pro", "Noto Kufi Arabic", sans-serif;
+  --kufi: "Aref Ruqaa", "Amiri", "Geeza Pro", serif;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -51,7 +51,7 @@ header.hero { display: grid; grid-template-columns: 1fr auto; align-items: end; 
 .hero h1 { font-family: var(--display); font-weight: 700; font-size: clamp(2.6rem, 9vw, 4.4rem); line-height: 1; letter-spacing: -0.03em; margin: 0; text-wrap: balance; }
 .hero h1 span { background: linear-gradient(transparent 72%, color-mix(in srgb, var(--warm) 45%, transparent) 72%); }
 .hero .lede { margin: 1.1rem 0 0; color: var(--muted); font-size: 1.05rem; max-width: 28rem; }
-.kufi { font-family: var(--kufi); font-size: 2rem; line-height: 1; color: var(--accent); margin: 0 0 0.6rem; user-select: none; }
+.kufi { font-family: var(--kufi); font-weight: 400; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--accent); margin: 0; user-select: none; }
 .portrait { width: clamp(9rem, 26vw, 13rem); aspect-ratio: 1; max-width: 100%; object-fit: cover; object-position: 50% 30%; border-radius: 50% 50% 18px 50%; display: block; }
 
 h2 { font-family: var(--display); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0 0 1rem; display: flex; gap: 0.75rem; align-items: center; }
@@ -64,7 +64,7 @@ section p:last-child { margin-bottom: 0; }
 .offer li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--line); }
 .offer li:last-child { border-bottom: 0; padding-bottom: 0; }
 .offer li b { font-family: var(--display); font-weight: 500; font-size: 0.95rem; color: var(--muted); padding-top: 0.15rem; }
-@media (max-width: 480px) { .offer li { grid-template-columns: 1fr; gap: 0.1rem; } header.hero { grid-template-columns: 1fr; } .portrait { order: -1; width: 9rem; } }
+@media (max-width: 480px) { .offer li { grid-template-columns: 1fr; gap: 0.1rem; } header.hero { grid-template-columns: 1fr; } .kufi { order: -1; } }
 
 .contact { display: grid; gap: 1.1rem; }
 .email-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
@@ -72,6 +72,11 @@ section p:last-child { margin-bottom: 0; }
 button { font: 500 0.95rem var(--display); color: var(--bg); background: var(--accent); border: 0; border-radius: 999px; padding: 0.55rem 1.1rem; cursor: pointer; }
 button.ghost { background: transparent; color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
 .links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; font-family: var(--display); font-size: 1rem; }
+.work { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
+.work li { display: grid; grid-template-columns: 5rem 1fr; gap: 1rem; align-items: baseline; }
+.work .yr { font-family: var(--display); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.work a { font-family: var(--display); font-weight: 500; font-size: 1.1rem; }
+.work p { margin: 0.15rem 0 0; font-size: 1rem; color: var(--muted); }
 .more p { margin: 0 0 0.5rem; color: var(--muted); font-size: 1rem; }
 footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); border-top: 1px solid var(--line); padding-top: 1.25rem; }
 </style>
@@ -81,11 +86,10 @@ footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); b
 <div class="wrap">
   <header class="hero">
     <div>
-      <p class="kufi" lang="ar" aria-hidden="true">بلال</p>
       <h1>Hello, I'm <span>Bilal.</span></h1>
       <p class="lede">I teach data protection, run people-first AI workshops, and build tools that help people think for themselves. Lille, France.</p>
     </div>
-    <img class="portrait" src="bilal.jpg" alt="Bilal reading a book at home, holding his baby" width="576" height="576">
+    <p class="kufi" lang="ar" aria-hidden="true">بلال</p>
   </header>
 
   <section>
@@ -102,6 +106,18 @@ footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); b
       <li><b>For events</b><span>Talks on education, technology and human flourishing.</span></li>
     </ul>
     <p>My way of facilitating is people-first: I listen to the room and adapt as we go, so each session ends up fitting the people who are in it. My French is still growing, so I teach in English, and I'm glad to come to you in Lille or in Paris.</p>
+  </section>
+
+  <section aria-labelledby="work-h">
+    <h2 id="work-h">Selected work</h2>
+    <ul class="work">
+      <li><span class="yr">2024–</span><div><a href="https://cursivegpt.com" rel="noopener">Cursive</a><p>A writing companion that strengthens your thinking, then gets out of the way.</p></div></li>
+      <li><span class="yr">2025–</span><div><a href="https://sourced.adab.studio" rel="noopener">Sourced</a><p>Shows you what an AI is assuming about you, so you can correct it.</p></div></li>
+      <li><span class="yr">2016–</span><div><a href="https://bloom.pm" rel="noopener">Bloom</a><p>An accelerator for social entrepreneurs: more than a thousand founders across sixteen countries.</p></div></li>
+      <li><span class="yr">2014</span><div><a href="https://www.youtube.com/watch?v=ZNvLstcMHgY" rel="noopener">Basra: Radiation, Hope and Hackerspaces</a><p>Citizens in Basra building their own radiation sensors with Safecast.</p></div></li>
+      <li><span class="yr">2010–16</span><div><a href="https://globalinnovationgathering.org" rel="noopener">Fikra Space and GEMSI</a><p>Baghdad's first hackerspace, and a network of makers across the region.</p></div></li>
+      <li><span class="yr">2008–14</span><div><a href="https://www.instructables.com/member/lamedust/instructables/" rel="noopener">Instructables</a><p>Twenty step-by-step guides to things I built and taught.</p></div></li>
+    </ul>
   </section>
 
   <section aria-labelledby="now-h">
