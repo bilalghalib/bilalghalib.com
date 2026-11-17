@@ -1,6 +1,10 @@
 # bilalghalib.com
 
-Static landing page for bilalghalib.com. Plain HTML/CSS, no build step.
-Planned host: Apache on the OVH server. The old WordPress moves to blog.bilalghalib.com.
+One static page. No build step.
 
-Edit `index.html`, commit, push.
+- `index.html` – the page (email is assembled in the browser so scrapers can't harvest it)
+- `bilal.jpg` – portrait
+- `robots.txt` – lets search engines in, keeps AI crawlers and SEO scrapers out
+
+Edit `index.html` on GitHub and push to `main`; the server pulls the latest version.
+The old WordPress (testimonials, talks, portfolio, blog) lives at blog.bilalghalib.com.

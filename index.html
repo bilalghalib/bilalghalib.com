@@ -2,102 +2,156 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bilal Ghalib</title>
-<meta name="description" content="Bilal Ghalib — technologies of connection, between tools, materials and people.">
-<meta property="og:title" content="Bilal Ghalib">
-<meta property="og:description" content="Technologies of connection — between tools, materials and people.">
-<meta property="og:image" content="https://bilalghalib.com/img/bilal.jpg">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Bilal Ghalib teaches data protection and runs people-first AI workshops for schools and organisations in Lille and Paris.">
+<meta name="robots" content="index, follow, noai, noimageai">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Reem+Kufi:wght@500&display=swap">
 <style>
-  :root {
-    --paper: #f5f0e6; --ink: #1d1a16; --muted: #6b6257; --rust: #a4472a; --rule: #d9cfbf;
+/* Layout: one reading column; the hero pairs the greeting with a warm portrait; his name in Kufic sits above. */
+:root {
+  --bg: #F2F5F1;
+  --surface: #E4EBE3;
+  --fg: #17201B;
+  --muted: #55625A;
+  --accent: #0E6656;   /* Iraqi tile green */
+  --warm: #C98A12;     /* saffron, used once for the underline */
+  --line: #CBD6CC;
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --kufi: "Reem Kufi", "Geeza Pro", "Noto Kufi Arabic", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111714; --surface: #1B2420; --fg: #E6ECE7; --muted: #9DABA2;
+    --accent: #5CC6AD; --warm: #E3AE45; --line: #2C3832; color-scheme: dark;
   }
-  @media (prefers-color-scheme: dark) {
-    :root { --paper: #17150f; --ink: #ede6d8; --muted: #a39a8b; --rust: #e07a55; --rule: #3a342a; }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; background: var(--paper); color: var(--ink);
-    font: 19px/1.55 "Newsreader", Georgia, serif;
-  }
-  main { max-width: 760px; margin: 0 auto; padding: 56px 20px 80px; }
-  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
-  a { color: var(--rust); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-  header { display: grid; grid-template-columns: 1fr 180px; gap: 32px; align-items: end; }
-  header img { width: 180px; height: 220px; object-fit: cover; object-position: center 25%; border-radius: 4px; filter: saturate(.9); }
-  h1 { font-weight: 500; font-size: 52px; line-height: 1.05; margin: 8px 0 16px; }
-  .thesis { font-size: 24px; font-style: italic; margin: 0; }
-  section { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--rule); }
-  h2 { font-weight: 500; font-size: 15px; margin: 0 0 18px; }
-  .doors { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .door { display: block; padding: 18px 20px; border: 1px solid var(--rule); border-radius: 6px; color: var(--ink); text-decoration: none; transition: border-color .15s, transform .15s; }
-  .door:hover { border-color: var(--rust); transform: translateY(-1px); }
-  .door b { display: block; font-weight: 500; font-size: 22px; color: var(--rust); }
-  .door span { color: var(--muted); font-size: 16px; }
-  ul.work { list-style: none; padding: 0; margin: 0; }
-  ul.work li { padding: 10px 0; border-bottom: 1px dashed var(--rule); display: flex; gap: 16px; justify-content: space-between; flex-wrap: wrap; }
-  ul.work li span { color: var(--muted); font-size: 16px; }
-  blockquote { margin: 0; font-style: italic; font-size: 21px; }
-  blockquote footer { font-style: normal; margin-top: 10px; }
-  footer.site { margin-top: 64px; display: flex; gap: 20px; flex-wrap: wrap; }
-  @media (max-width: 600px) {
-    header { grid-template-columns: 1fr; }
-    header img { order: -1; width: 120px; height: 150px; }
-    h1 { font-size: 40px; }
-    .doors { grid-template-columns: 1fr; }
-  }
+}
+:root[data-theme="dark"] {
+  --bg: #111714; --surface: #1B2420; --fg: #E6ECE7; --muted: #9DABA2;
+  --accent: #5CC6AD; --warm: #E3AE45; --line: #2C3832; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--body); font-size: 1.125rem; line-height: 1.65;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+.wrap { max-width: 40rem; margin: 0 auto; padding-block: clamp(2.5rem, 7vw, 5rem) 3rem; display: grid; gap: 3.25rem; }
+a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+header.hero { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 1.5rem; border-bottom: 1px solid var(--line); padding-bottom: 2rem; }
+.hero h1 { font-family: var(--display); font-weight: 700; font-size: clamp(2.6rem, 9vw, 4.4rem); line-height: 1; letter-spacing: -0.03em; margin: 0; text-wrap: balance; }
+.hero h1 span { background: linear-gradient(transparent 72%, color-mix(in srgb, var(--warm) 45%, transparent) 72%); }
+.hero .lede { margin: 1.1rem 0 0; color: var(--muted); font-size: 1.05rem; max-width: 28rem; }
+.kufi { font-family: var(--kufi); font-size: 2rem; line-height: 1; color: var(--accent); margin: 0 0 0.6rem; user-select: none; }
+.portrait { width: clamp(9rem, 26vw, 13rem); aspect-ratio: 1; max-width: 100%; object-fit: cover; object-position: 50% 30%; border-radius: 50% 50% 18px 50%; display: block; }
+
+h2 { font-family: var(--display); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0 0 1rem; display: flex; gap: 0.75rem; align-items: center; }
+h2 .when { font-weight: 500; letter-spacing: 0.06em; color: var(--muted); }
+section p { margin: 0 0 1rem; }
+section p:last-child { margin-bottom: 0; }
+
+.offer { background: var(--surface); border-radius: 14px; padding: clamp(1.25rem, 4vw, 2rem); }
+.offer ul { list-style: none; padding: 0; margin: 0 0 1.25rem; display: grid; gap: 0.6rem; }
+.offer li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--line); }
+.offer li:last-child { border-bottom: 0; padding-bottom: 0; }
+.offer li b { font-family: var(--display); font-weight: 500; font-size: 0.95rem; color: var(--muted); padding-top: 0.15rem; }
+@media (max-width: 480px) { .offer li { grid-template-columns: 1fr; gap: 0.1rem; } header.hero { grid-template-columns: 1fr; } .portrait { order: -1; width: 9rem; } }
+
+.contact { display: grid; gap: 1.1rem; }
+.email-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
+.email { font-family: var(--display); font-weight: 500; font-size: clamp(1.25rem, 5vw, 1.6rem); color: var(--fg); word-break: break-all; }
+button { font: 500 0.95rem var(--display); color: var(--bg); background: var(--accent); border: 0; border-radius: 999px; padding: 0.55rem 1.1rem; cursor: pointer; }
+button.ghost { background: transparent; color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; font-family: var(--display); font-size: 1rem; }
+.more p { margin: 0 0 0.5rem; color: var(--muted); font-size: 1rem; }
+footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); border-top: 1px solid var(--line); padding-top: 1.25rem; }
 </style>
 </head>
 <body>
-<main>
-  <header>
+
+<div class="wrap">
+  <header class="hero">
     <div>
-      <div class="mono">Detroit · Boston · Basra · Beirut · Berlin</div>
-      <h1>Bilal Ghalib</h1>
-      <p class="thesis">Technologies of connection — between tools, materials and people.</p>
+      <p class="kufi" lang="ar" aria-hidden="true">بلال</p>
+      <h1>Hello, I'm <span>Bilal.</span></h1>
+      <p class="lede">I teach data protection, run people-first AI workshops, and build tools that help people think for themselves. Lille, France.</p>
     </div>
-    <img src="img/bilal.jpg" alt="Portrait of Bilal Ghalib">
+    <img class="portrait" src="bilal.jpg" alt="Bilal reading a book at home, holding his baby" width="576" height="576">
   </header>
 
   <section>
-    <p>For 20 years I've been learning and teaching by doing — together with people from Silicon Valley to Beirut, Baghdad to Singapore. Alongside my own critical-making practice I teach and facilitate. My mediums are code, electronics, watercolors, poetry, and beyond. I co-founded <a href="https://app.bloom.pm">Bloom</a>, helped start one of Iraq's first hackerspaces, and today I build AI tools that strengthen thinking instead of replacing it.</p>
+    <p>I'm an Iraqi American living in Lille with my family. For about twenty years I've been learning and teaching by doing, together with people from Detroit and Boston to Baghdad, Beirut and Basra. In 2009 I co-founded All Hands Active, Ann Arbor's first hackerspace, and two years later Fikra Space, the first hackerspace in Baghdad. After that I co-founded <a href="https://bloom.pm" rel="noopener">Bloom</a>, an accelerator for social entrepreneurs that has worked with more than a thousand founders across sixteen countries in Southwest Asia and North Africa. Along the way I designed curriculum for the UN in Iraq, and I wrote my master's thesis in Learning Sciences at Université de Paris on how Lebanese social entrepreneurs grew after the Beirut port explosion.</p>
+    <p>These days I build tools at Adab Studio that help people think and read for themselves, rather than hand their thinking over to AI. Cursive is a writing companion that strengthens your thinking and then gets out of the way, Versed is a bilingual Arabic and English reader, and Sourced shows you what an AI is assuming about you. What I love most, though, is being in a room with people and helping them find what is beautiful in them and bring it into the world.</p>
   </section>
 
-  <section>
-    <h2 class="mono">Explore</h2>
-    <div class="doors">
-      <a class="door" href="https://blog.bilalghalib.com/talks/"><b>Talks</b><span>Videos of me speaking</span></a>
-      <a class="door" href="https://blog.bilalghalib.com/testimonies/"><b>Testimonials</b><span>What collaborators say</span></a>
-      <a class="door" href="https://portfolio.adab.studio"><b>Portfolio</b><span>Selected works, 2008–2026</span></a>
-      <a class="door" href="https://blog.bilalghalib.com/blog/"><b>Writing</b><span>The blog archive</span></a>
+  <section class="offer" aria-labelledby="offer-h">
+    <h2 id="offer-h">What I can offer right now</h2>
+    <p>I teach Data Protection in the Master's in International Relations and Risk Management at the Université Catholique de Lille. It's a highly interactive, case-study based course in which students follow one fictional organisation through a semester of real decisions, and I would be glad to bring it, or something like it, to your school.</p>
+    <ul>
+      <li><b>For students</b><span>A full elective, a short module or a single guest session, adjusted in material, angle and length to fit your programme.</span></li>
+      <li><b>For staff</b><span>A half-day AI workshop that helps a school or organisation meet the EU AI Act's new requirement for AI literacy.</span></li>
+      <li><b>For events</b><span>Talks on education, technology and human flourishing.</span></li>
+    </ul>
+    <p>My way of facilitating is people-first: I listen to the room and adapt as we go, so each session ends up fitting the people who are in it. My French is still growing, so I teach in English, and I'm glad to come to you in Lille or in Paris.</p>
+  </section>
+
+  <section aria-labelledby="now-h">
+    <h2 id="now-h">Now <span class="when">November 2026</span></h2>
+    <p>This month I'm teaching the last sessions of my Data Protection course, which ends in December, and I'm reaching out to schools around Lille about teaching with them next year. I'm also getting Cursive ready for its first real users, and slowly finding my way back to sharing my work in public after a few quiet years.</p>
+  </section>
+
+  <section class="contact" aria-labelledby="contact-h">
+    <h2 id="contact-h">Get in touch</h2>
+    <p>The easiest way to reach me is by email, and I'm always glad to hear from people.</p>
+    <div class="email-row">
+      <span class="email" id="email" data-u="gb" data-d="moc.bilahglalib">bg [at] bilalghalib [dot] com</span>
+      <button type="button" id="copy" hidden>Copy</button>
+      <button type="button" class="ghost" id="write" hidden>Write to me</button>
+    </div>
+    <nav class="links" aria-label="Elsewhere">
+      <a href="https://www.linkedin.com/in/bilalghalib" rel="noopener">LinkedIn</a>
+    </nav>
+    <div class="more">
+      <p>More of my work lives on my blog:</p>
+      <nav class="links" aria-label="From my blog">
+        <a href="https://blog.bilalghalib.com/testimonies/">What people say</a>
+        <a href="https://blog.bilalghalib.com/talks/">Videos of my talks</a>
+        <a href="https://blog.bilalghalib.com/portfolio/">Past projects</a>
+        <a href="https://blog.bilalghalib.com/blog/">Writing</a>
+      </nav>
     </div>
   </section>
 
-  <section>
-    <h2 class="mono">Now building</h2>
-    <ul class="work">
-      <li><a href="https://cursivegpt.com">Cursive</a><span>AI that strengthens your thinking, then gets out of the way</span></li>
-      <li><a href="https://sourced.adab.studio">Sourced</a><span>A transparency protocol for AI conversations</span></li>
-      <li><a href="https://driftpaths.com">Drift Paths</a><span>Agentic ocean simulation, ecological data</span></li>
-      <li><a href="https://wayway.ai">wayway.ai</a><span>Small AI tools for reading, writing, attention</span></li>
-      <li><a href="https://app.bloom.pm">Bloom</a><span>Ten years of facilitation and social-impact accelerators</span></li>
-    </ul>
-  </section>
+  <footer>Bilal Ghalib · Lille, France</footer>
+</div>
 
-  <section>
-    <blockquote>
-      Bilal is one of the most creative, thoughtful and inspiring people I have worked with.
-      <footer class="mono">Geraldine de Bastion · Global Innovation Gathering</footer>
-    </blockquote>
-  </section>
-
-  <footer class="site mono">
-    <a href="mailto:bilal@bloom.pm">Email</a>
-    <a href="https://github.com/bilalghalib">GitHub</a>
-    <a href="https://www.instructables.com/member/lamedust/instructables/">Instructables</a>
-  </footer>
-</main>
+<script>
+(function () {
+  // The address is stored reversed and only assembled in the browser, so simple scrapers never see it.
+  var el = document.getElementById('email');
+  var rev = function (s) { return s.split('').reverse().join(''); };
+  var addr = rev(el.dataset.u) + String.fromCharCode(64) + rev(el.dataset.d);
+  el.textContent = addr;
+  var copy = document.getElementById('copy'), write = document.getElementById('write');
+  copy.hidden = false; write.hidden = false;
+  copy.addEventListener('click', function () {
+    var done = function () { copy.textContent = 'Copied'; setTimeout(function () { copy.textContent = 'Copy'; }, 1800); };
+    try {
+      navigator.clipboard.writeText(addr).then(done, function () { selectIt(); });
+    } catch (e) { selectIt(); }
+  });
+  function selectIt() { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+  write.addEventListener('click', function () { location.href = 'mai' + 'lto:' + addr; });
+})();
+</script>
 </body>
 </html>
