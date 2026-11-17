@@ -52,7 +52,7 @@ header.hero { display: grid; grid-template-columns: 1fr auto; align-items: end; 
 .hero h1 span { background: linear-gradient(transparent 72%, color-mix(in srgb, var(--warm) 45%, transparent) 72%); }
 .hero .lede { margin: 1.1rem 0 0; color: var(--muted); font-size: 1.05rem; max-width: 28rem; }
 .kufi { font-family: var(--kufi); font-weight: 400; font-size: 2.4rem; line-height: 1; color: var(--accent); margin: 0 0 0.5rem; user-select: none; }
-.portrait { width: clamp(9rem, 26vw, 12.5rem); aspect-ratio: 4 / 5; height: auto; max-width: 100%; object-fit: cover; object-position: 50% 20%; border-radius: 14px; display: block; }
+.portrait { width: clamp(9rem, 26vw, 12.5rem); aspect-ratio: 3 / 5; height: auto; max-width: 100%; object-fit: cover; object-position: 50% 50%; border-radius: 14px; display: block; }
 
 h2 { font-family: var(--display); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0 0 1rem; display: flex; gap: 0.75rem; align-items: center; }
 h2 .when { font-weight: 500; letter-spacing: 0.06em; color: var(--muted); }
@@ -64,7 +64,7 @@ section p:last-child { margin-bottom: 0; }
 .offer li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--line); }
 .offer li:last-child { border-bottom: 0; padding-bottom: 0; }
 .offer li b { font-family: var(--display); font-weight: 500; font-size: 0.95rem; color: var(--muted); padding-top: 0.15rem; }
-@media (max-width: 480px) { .offer li { grid-template-columns: 1fr; gap: 0.1rem; } header.hero { grid-template-columns: 1fr; } .portrait { order: -1; width: 10rem; } }
+@media (max-width: 480px) { .offer li { grid-template-columns: 1fr; gap: 0.1rem; } header.hero { grid-template-columns: 1fr; } .portrait { order: -1; width: 9rem; } }
 
 .contact { display: grid; gap: 1.1rem; }
 .email-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
@@ -90,7 +90,7 @@ footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); b
       <h1>Hello, I'm <span>Bilal.</span></h1>
       <p class="lede">I teach data protection, run people-first AI workshops, and build tools that help people think for themselves. Lille, France.</p>
     </div>
-    <img class="portrait" src="bilal.jpg" alt="Bilal Ghalib, smiling, in a grey blazer" width="640" height="1098">
+    <img class="portrait" src="bilal.jpg" alt="Bilal Ghalib, smiling, in a grey blazer" width="540" height="900">
   </header>
 
   <section>
