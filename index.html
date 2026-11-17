@@ -52,7 +52,7 @@ header.hero { display: grid; grid-template-columns: 1fr auto; align-items: end; 
 .hero h1 span { background: linear-gradient(transparent 72%, color-mix(in srgb, var(--warm) 45%, transparent) 72%); }
 .hero .lede { margin: 1.1rem 0 0; color: var(--muted); font-size: 1.05rem; max-width: 28rem; }
 .kufi { font-family: var(--kufi); font-weight: 400; font-size: 1.7rem; line-height: 1.4; color: var(--accent); margin: 1rem 0 0; opacity: 0.85; user-select: none; }
-.portrait { width: clamp(10rem, 28vw, 15rem); aspect-ratio: 1; height: auto; max-width: 100%; object-fit: cover; object-position: 50% 50%; border-radius: 14px; display: block; }
+.portrait { width: clamp(10rem, 28vw, 15rem); aspect-ratio: 4 / 5; height: auto; max-width: 100%; object-fit: cover; object-position: 50% 50%; border-radius: 14px; display: block; }
 
 h2 { font-family: var(--display); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0 0 1rem; display: flex; gap: 0.75rem; align-items: center; }
 h2 .when { font-weight: 500; letter-spacing: 0.06em; color: var(--muted); }
@@ -91,6 +91,11 @@ section[id] { scroll-margin-top: 1.5rem; }
 .menu nav a { font-family: var(--display); font-size: 1rem; text-decoration: none; color: var(--fg); padding: 0.55rem 0.75rem; border-radius: 8px; }
 .menu nav a:hover, .menu nav a:focus-visible { background: var(--surface); color: var(--accent); }
 .menu hr { border: 0; border-top: 1px solid var(--line); margin: 0.35rem 0.5rem; }
+.theme { position: fixed; z-index: 20; top: calc(env(safe-area-inset-top, 0px) + 14px); right: calc(env(safe-area-inset-right, 0px) + 66px); width: 44px; height: 44px; border: 0; border-radius: 12px; background: var(--surface); color: var(--fg); display: grid; place-content: center; cursor: pointer; box-shadow: 0 1px 0 var(--line); }
+.theme:hover { color: var(--accent); }
+.theme .sun { display: none; }
+:root[data-theme="dark"] .theme .sun { display: block; } :root[data-theme="dark"] .theme .moon { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .theme .sun { display: block; } :root:not([data-theme="light"]) .theme .moon { display: none; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .menu summary span { transition: none; } }
 .shortcuts { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: -1.5rem; }
 .shortcuts a { font-family: var(--display); font-size: 0.95rem; text-decoration: none; color: var(--fg); background: var(--surface); padding: 0.5rem 0.95rem; border-radius: 999px; }
@@ -110,6 +115,11 @@ footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); b
 </head>
 <body>
 
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+<button type="button" class="theme" id="theme" aria-label="Switch light or dark mode" title="Light or dark mode">
+  <svg class="moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+  <svg class="sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg>
+</button>
 <details class="menu" id="menu">
   <summary aria-label="Menu"><span></span><span></span><span></span></summary>
   <nav aria-label="Site">
@@ -131,7 +141,7 @@ footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); b
       <p class="lede">I teach data protection, run people-first AI workshops, and build tools that help people think for themselves. Lille, France.</p>
       <p class="kufi" lang="ar" dir="rtl" title="Salam from Abu Suleiman">سلام من أبي سليمان</p>
     </div>
-    <img class="portrait" src="bilal.jpg" alt="Portrait of Bilal Ghalib smiling, in a brown blazer" width="720" height="720">
+    <img class="portrait" src="bilal.jpg" alt="Portrait of Bilal Ghalib smiling, in a grey blazer and white shirt" width="720" height="900">
   </header>
 
   <nav class="shortcuts" aria-label="On this page">
@@ -193,6 +203,7 @@ footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); b
 </div>
 
 <script>
+document.getElementById('theme').addEventListener('click',function(){var r=document.documentElement;var dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;var n=dark?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n);}catch(e){}});
 (function () {
   var menu = document.getElementById('menu');
   menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { menu.open = false; }); });
