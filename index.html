@@ -52,7 +52,7 @@ header.hero { display: grid; grid-template-columns: 1fr auto; align-items: end; 
 .hero h1 span { background: linear-gradient(transparent 72%, color-mix(in srgb, var(--warm) 45%, transparent) 72%); }
 .hero .lede { margin: 1.1rem 0 0; color: var(--muted); font-size: 1.05rem; max-width: 28rem; }
 .kufi { font-family: var(--kufi); font-weight: 400; font-size: 1.7rem; line-height: 1.4; color: var(--accent); margin: 1rem 0 0; opacity: 0.85; user-select: none; }
-.portrait { width: clamp(10rem, 28vw, 15rem); aspect-ratio: 4 / 5; height: auto; max-width: 100%; object-fit: cover; object-position: 50% 50%; border-radius: 14px; display: block; }
+.portrait { width: clamp(8rem, 22vw, 11rem); aspect-ratio: 4 / 5; height: auto; max-width: 100%; object-fit: cover; object-position: 50% 50%; border-radius: 14px; display: block; }
 
 h2 { font-family: var(--display); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0 0 1rem; display: flex; gap: 0.75rem; align-items: center; }
 h2 .when { font-weight: 500; letter-spacing: 0.06em; color: var(--muted); }
@@ -64,7 +64,7 @@ section p:last-child { margin-bottom: 0; }
 .offer li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--line); }
 .offer li:last-child { border-bottom: 0; padding-bottom: 0; }
 .offer li b { font-family: var(--display); font-weight: 500; font-size: 0.95rem; color: var(--muted); padding-top: 0.15rem; }
-@media (max-width: 480px) { .offer li { grid-template-columns: 1fr; gap: 0.1rem; } header.hero { grid-template-columns: 1fr; } .portrait { order: -1; width: 9rem; } }
+@media (max-width: 480px) { .offer li { grid-template-columns: 1fr; gap: 0.1rem; } header.hero { grid-template-columns: 1fr; } .portrait { order: -1; width: 6.5rem; } }
 
 .contact { display: grid; gap: 1.1rem; }
 .email-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
@@ -97,9 +97,16 @@ section[id] { scroll-margin-top: 1.5rem; }
 :root[data-theme="dark"] .theme .sun { display: block; } :root[data-theme="dark"] .theme .moon { display: none; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .theme .sun { display: block; } :root:not([data-theme="light"]) .theme .moon { display: none; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .menu summary span { transition: none; } }
-.shortcuts { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: -1.5rem; }
-.shortcuts a { font-family: var(--display); font-size: 0.95rem; text-decoration: none; color: var(--fg); background: var(--surface); padding: 0.5rem 0.95rem; border-radius: 999px; }
-.shortcuts a:hover { color: var(--accent); }
+.shortcuts { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: -1.5rem; }
+.shortcuts a { flex: 1 1 auto; white-space: nowrap; display: flex; align-items: center; gap: 0.6rem; font: 600 0.98rem var(--display); text-decoration: none; color: var(--fg); background: var(--bg); border: 1.5px solid var(--line); border-radius: 12px; padding: 0.8rem 0.9rem; box-shadow: 0 1px 0 var(--line), 0 4px 14px rgba(0,0,0,.05); transition: border-color .15s, transform .15s, box-shadow .15s; }
+.shortcuts a svg { flex: none; color: var(--accent); }
+.shortcuts a .go { margin-left: auto; color: var(--muted); }
+.shortcuts a:hover, .shortcuts a:focus-visible { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 1px 0 var(--line), 0 8px 20px rgba(0,0,0,.08); }
+.shortcuts a:hover .go { color: var(--accent); }
+.shortcuts a:active { transform: translateY(0); }
+@media (min-width: 641px) { .shortcuts a .go { display: none; } .shortcuts a { justify-content: center; } }
+@media (max-width: 640px) { .shortcuts { flex-direction: column; gap: 0.5rem; } }
+@media (prefers-reduced-motion: reduce) { .shortcuts a { transition: none; } .shortcuts a:hover { transform: none; } }
 .small { font-size: 0.95rem; color: var(--muted); }
 .readmore summary { cursor: pointer; font-family: var(--display); color: var(--accent); list-style: none; margin-top: 0.25rem; }
 .readmore summary::-webkit-details-marker { display: none; }
@@ -145,9 +152,9 @@ footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); b
   </header>
 
   <nav class="shortcuts" aria-label="On this page">
-    <a href="#teach">Courses &amp; workshops</a>
-    <a href="#work">Selected work</a>
-    <a href="#about">About me</a>
+    <a href="#teach"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></g></svg><span>Courses &amp; workshops</span><svg class="go" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="#work"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></g></svg><span>Selected work</span><svg class="go" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="#about"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></g></svg><span>About me</span><svg class="go" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </nav>
 
   <section class="offer" id="teach" aria-labelledby="offer-h">
