@@ -51,7 +51,7 @@ header.hero { display: grid; grid-template-columns: 1fr auto; align-items: end; 
 .hero h1 { font-family: var(--display); font-weight: 700; font-size: clamp(2.6rem, 9vw, 4.4rem); line-height: 1; letter-spacing: -0.03em; margin: 0; text-wrap: balance; }
 .hero h1 span { background: linear-gradient(transparent 72%, color-mix(in srgb, var(--warm) 45%, transparent) 72%); }
 .hero .lede { margin: 1.1rem 0 0; color: var(--muted); font-size: 1.05rem; max-width: 28rem; }
-.kufi { font-family: var(--kufi); font-weight: 400; font-size: 2.4rem; line-height: 1; color: var(--accent); margin: 0 0 0.5rem; user-select: none; }
+.kufi { font-family: var(--kufi); font-weight: 400; font-size: 1.7rem; line-height: 1.4; color: var(--accent); margin: 1rem 0 0; opacity: 0.85; user-select: none; }
 .portrait { width: clamp(10rem, 28vw, 15rem); aspect-ratio: 1; height: auto; max-width: 100%; object-fit: cover; object-position: 50% 50%; border-radius: 14px; display: block; }
 
 h2 { font-family: var(--display); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0 0 1rem; display: flex; gap: 0.75rem; align-items: center; }
@@ -127,9 +127,9 @@ footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); b
 <div class="wrap">
   <header class="hero">
     <div>
-      <p class="kufi" lang="ar" title="Abu Suleiman">أبو سليمان</p>
-      <h1>Salam, I'm <span>Bilal.</span></h1>
+      <h1>Hello, I'm <span>Bilal.</span></h1>
       <p class="lede">I teach data protection, run people-first AI workshops, and build tools that help people think for themselves. Lille, France.</p>
+      <p class="kufi" lang="ar" dir="rtl" title="Salam from Abu Suleiman">سلام من أبي سليمان</p>
     </div>
     <img class="portrait" src="bilal.jpg" alt="Portrait of Bilal Ghalib smiling, in a brown blazer" width="720" height="720">
   </header>
