@@ -92,6 +92,19 @@ section[id] { scroll-margin-top: 1.5rem; }
 .menu nav a:hover, .menu nav a:focus-visible { background: var(--surface); color: var(--accent); }
 .menu hr { border: 0; border-top: 1px solid var(--line); margin: 0.35rem 0.5rem; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .menu summary span { transition: none; } }
+.shortcuts { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: -1.5rem; }
+.shortcuts a { font-family: var(--display); font-size: 0.95rem; text-decoration: none; color: var(--fg); background: var(--surface); padding: 0.5rem 0.95rem; border-radius: 999px; }
+.shortcuts a:hover { color: var(--accent); }
+.small { font-size: 0.95rem; color: var(--muted); }
+.readmore summary { cursor: pointer; font-family: var(--display); color: var(--accent); list-style: none; margin-top: 0.25rem; }
+.readmore summary::-webkit-details-marker { display: none; }
+.readmore summary::after { content: " ↓"; }
+.readmore[open] summary { display: none; }
+.readmore p { margin: 1rem 0 0; }
+.menu nav a.li { display: flex; align-items: center; gap: 0.5rem; }
+.cta { position: fixed; z-index: 15; right: calc(env(safe-area-inset-right, 0px) + 16px); bottom: calc(env(safe-area-inset-bottom, 0px) + 16px); font: 600 0.98rem var(--display); color: var(--bg); background: var(--accent); text-decoration: none; padding: 0.85rem 1.25rem; border-radius: 999px; box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+.cta:hover { filter: brightness(1.08); }
+.wrap { padding-bottom: 6rem; }
 footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); border-top: 1px solid var(--line); padding-top: 1.25rem; }
 </style>
 </head>
@@ -100,17 +113,16 @@ footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); b
 <details class="menu" id="menu">
   <summary aria-label="Menu"><span></span><span></span><span></span></summary>
   <nav aria-label="Site">
-    <a href="#teach">Teach with me</a>
+    <a href="#teach">Courses &amp; workshops</a>
     <a href="#work">Selected work</a>
-    <a href="https://calendly.com/bilalg/bilal-25mins" rel="noopener">Book a 25-min call</a>
+    <a href="#about">About</a>
     <a href="#contact">Contact</a>
     <hr>
-    <a href="https://www.linkedin.com/in/bilalghalib" rel="noopener">LinkedIn</a>
-    <a href="https://adab.studio" rel="noopener">Adab Studio</a>
-    <a href="https://bloom.pm" rel="noopener">Bloom</a>
-    <a href="https://blog.bilalghalib.com/blog/">Blog</a>
+    <a class="li" href="https://www.linkedin.com/in/bilalghalib" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
   </nav>
 </details>
+
+<a class="cta" href="https://calendly.com/bilalg/bilal-25mins" rel="noopener">Book a 25-min call</a>
 
 <div class="wrap">
   <header class="hero">
@@ -122,20 +134,21 @@ footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); b
     <img class="portrait" src="bilal.jpg" alt="Portrait of Bilal Ghalib smiling, in a brown blazer" width="720" height="720">
   </header>
 
-  <section>
-    <p>I'm an Iraqi American living in Lille with my family. For about twenty years I've been learning and teaching by doing, together with people from Detroit and Boston to Baghdad, Beirut and Basra. In 2009 I co-founded All Hands Active, Ann Arbor's first hackerspace, and two years later Fikra Space, the first hackerspace in Baghdad. After that I co-founded <a href="https://bloom.pm" rel="noopener">Bloom</a>, an accelerator for social entrepreneurs that has worked with more than a thousand founders across sixteen countries in Southwest Asia and North Africa. Along the way I designed curriculum for the UN in Iraq, and I wrote my master's thesis in Learning Sciences at Université de Paris on how Lebanese social entrepreneurs grew after the Beirut port explosion.</p>
-    <p>These days I build tools at <a href="https://adab.studio" rel="noopener">Adab Studio</a> that help people think and read for themselves, rather than hand their thinking over to AI. <a href="https://cursivegpt.com" rel="noopener">Cursive</a> is a writing companion that strengthens your thinking and then gets out of the way, Versed is a bilingual Arabic and English reader, and Sourced shows you what an AI is assuming about you. What I love most, though, is being in a room with people and helping them find what is beautiful in them and bring it into the world.</p>
-  </section>
+  <nav class="shortcuts" aria-label="On this page">
+    <a href="#teach">Courses &amp; workshops</a>
+    <a href="#work">Selected work</a>
+    <a href="#about">About me</a>
+  </nav>
 
   <section class="offer" id="teach" aria-labelledby="offer-h">
-    <h2 id="offer-h">What I can offer right now</h2>
-    <p>I teach Data Protection in the Master's in International Relations and Risk Management at the Université Catholique de Lille. It's a highly interactive, case-study based course in which students follow one fictional organisation through a semester of real decisions, and I would be glad to bring it, or something like it, to your school.</p>
+    <h2 id="offer-h">Courses &amp; workshops</h2>
+    <p>I teach Data Protection in the Master's in International Relations and Risk Management at the Université Catholique de Lille: a hands-on, case-study course I'd be glad to bring to your school.</p>
     <ul>
-      <li><b>For students</b><span>A full elective, a short module or a single guest session, adjusted in material, angle and length to fit your programme.</span></li>
-      <li><b>For staff</b><span>A half-day AI workshop that helps a school or organisation meet the EU AI Act's new requirement for AI literacy.</span></li>
+      <li><b>For students</b><span>A full elective, a short module or a single guest session, shaped to your programme.</span></li>
+      <li><b>For staff</b><span>A half-day AI workshop that helps you meet the EU AI Act's new AI literacy requirement.</span></li>
       <li><b>For events</b><span>Talks on education, technology and human flourishing.</span></li>
     </ul>
-    <p>My way of facilitating is people-first: I listen to the room and adapt as we go, so each session ends up fitting the people who are in it. My French is still growing, so I teach in English, and I'm glad to come to you in Lille or in Paris.</p>
+    <p class="small">I teach in English, in Lille or Paris.</p>
   </section>
 
   <section id="work" aria-labelledby="work-h">
@@ -148,16 +161,23 @@ footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); b
       <li><span class="yr">2010–16</span><div><a href="https://globalinnovationgathering.org" rel="noopener">Fikra Space and GEMSI</a><p>Baghdad's first hackerspace, and a network of makers across the region.</p></div></li>
       <li><span class="yr">2008–14</span><div><a href="https://www.instructables.com/member/lamedust/instructables/" rel="noopener">Instructables</a><p>Twenty step-by-step guides to things I built and taught.</p></div></li>
     </ul>
+    <p class="small"><a href="https://blog.bilalghalib.com/portfolio/">More projects</a> · <a href="https://blog.bilalghalib.com/talks/">Talks</a> · <a href="https://blog.bilalghalib.com/testimonies/">What people say</a></p>
   </section>
 
-  <section aria-labelledby="now-h">
-    <h2 id="now-h">Now <span class="when">November 2026</span></h2>
-    <p>This month I'm teaching the last sessions of my Data Protection course, which ends in December, and I'm reaching out to schools around Lille about teaching with them next year. I'm also getting Cursive ready for its first real users, and slowly finding my way back to sharing my work in public after a few quiet years.</p>
+  <section id="about" aria-labelledby="about-h">
+    <h2 id="about-h">About me</h2>
+    <p>I'm an Iraqi American living in Lille with my family. For twenty years I've been learning and teaching by doing, from Detroit to Baghdad, Beirut and Basra, and today I build tools at <a href="https://adab.studio" rel="noopener">Adab Studio</a> that help people think for themselves.</p>
+    <details class="readmore">
+      <summary>Read more</summary>
+      <p>In 2009 I co-founded All Hands Active, Ann Arbor's first hackerspace, and two years later Fikra Space, the first hackerspace in Baghdad. After that I co-founded <a href="https://bloom.pm" rel="noopener">Bloom</a>, an accelerator for social entrepreneurs that has worked with more than a thousand founders across sixteen countries in Southwest Asia and North Africa. Along the way I designed curriculum for the UN in Iraq, and I wrote my master's thesis in Learning Sciences at Université de Paris on how Lebanese social entrepreneurs grew after the Beirut port explosion.</p>
+      <p>At Adab Studio, <a href="https://cursivegpt.com" rel="noopener">Cursive</a> is a writing companion that strengthens your thinking and then gets out of the way, Versed is a bilingual Arabic and English reader, and Sourced shows you what an AI is assuming about you. What I love most, though, is being in a room with people and helping them find what is beautiful in them and bring it into the world.</p>
+      <p><b>Now (November 2026):</b> I'm teaching the last sessions of my Data Protection course, talking with schools around Lille about next year, and getting Cursive ready for its first real users.</p>
+    </details>
   </section>
 
   <section class="contact" id="contact" aria-labelledby="contact-h">
     <h2 id="contact-h">Get in touch</h2>
-    <p>The easiest way to reach me is by email, and I'm always glad to hear from people. If you'd rather talk, <a href="https://calendly.com/bilalg/bilal-25mins" rel="noopener">book a 25-minute call</a>.</p>
+    <p>Email is the easiest way to reach me.</p>
     <div class="email-row">
       <span class="email" id="email" data-u="gb" data-d="moc.bilahglalib">bg [at] bilalghalib [dot] com</span>
       <button type="button" id="copy" hidden>Copy</button>
@@ -165,16 +185,8 @@ footer { color: var(--muted); font-size: 0.85rem; font-family: var(--display); b
     </div>
     <nav class="links" aria-label="Elsewhere">
       <a href="https://www.linkedin.com/in/bilalghalib" rel="noopener">LinkedIn</a>
+      <a href="https://blog.bilalghalib.com/blog/">Blog</a>
     </nav>
-    <div class="more">
-      <p>More of my work lives on my blog:</p>
-      <nav class="links" aria-label="From my blog">
-        <a href="https://blog.bilalghalib.com/testimonies/">What people say</a>
-        <a href="https://blog.bilalghalib.com/talks/">Videos of my talks</a>
-        <a href="https://blog.bilalghalib.com/portfolio/">Past projects</a>
-        <a href="https://blog.bilalghalib.com/blog/">Writing</a>
-      </nav>
-    </div>
   </section>
 
   <footer>Bilal Ghalib · Lille, France</footer>
