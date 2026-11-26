@@ -46,6 +46,10 @@
 <style>
   /* the Arabic signature: the one word in colour on the page (the old site's tile green, kept from the client) */
   .sig { text-align: left; font-family: "Aref Ruqaa", serif; font-size: 32px; line-height: 1.4; color: #5cc6ad; margin: 0; }
+  .ask { display: grid; gap: var(--s-4); }
+  .ask__ais { display: flex; flex-wrap: wrap; gap: var(--s-3); }
+  @media (max-width: 479px) { .ask__ais .btn { flex: 1 1 100%; } }
+  .ask__note { color: var(--muted); max-width: 52ch; margin: 0; }
 </style>
 </head>
 <body>
@@ -85,6 +89,7 @@
       </div>
       <div class="nav__item"><a class="nav__link" href="#work">Work</a></div>
       <div class="nav__item"><a class="nav__link" href="#about">About</a></div>
+      <div class="nav__item"><a class="nav__link" href="#ask">Ask an AI</a></div>
     </nav>
     <div class="nav__actions">
       <a class="btn btn--primary" href="https://calendly.com/bilalg/bilal-25mins" rel="noopener">Book a 25-min call</a>
@@ -173,6 +178,28 @@
       </div>
     </div>
   </section>
+  <section class="section" id="ask" aria-labelledby="ask-h">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="section-head span-5">
+          <h2 id="ask-h">What could we make together?</h2>
+          <p>Tell an AI a line about you. It reads my profile and tells you, honestly, where we connect, what we could do together, and where we don't fit.</p>
+        </div>
+        <form class="ask span-6 start-7" id="ask-form" novalidate>
+          <div class="field">
+            <label for="ask-me">About you (optional)</label>
+            <textarea id="ask-me" maxlength="600" placeholder="e.g. I run a master's in public policy in Brussels and our students keep asking about AI."></textarea>
+          </div>
+          <div class="ask__ais">
+            <button class="btn btn--primary" type="submit" data-ai="claude">Ask Claude</button>
+            <button class="btn btn--secondary" type="submit" data-ai="chatgpt">Ask ChatGPT</button>
+            <button class="btn btn--secondary" type="submit" data-ai="perplexity">Ask Perplexity</button>
+          </div>
+          <p class="t-small ask__note">What you type goes only to the AI you pick, in a new tab. This site never sees or keeps it. <a class="link" href="llms.txt">Read what the AI reads</a>.</p>
+        </form>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer class="footer closing g2m" id="contact" aria-labelledby="close-h">
@@ -212,6 +239,26 @@
 <script>
   // the address is assembled in the browser, so simple scrapers never see it
   (function(){var a=['gb','moc.bilahglalib'].map(function(s){return s.split('').reverse().join('')});document.getElementById('mail').href='mai'+'lto:'+a[0]+String.fromCharCode(64)+a[1];})();
+</script>
+<script>
+  // "What could we make together?": the prompt is built here and opened in the visitor's chosen AI.
+  // Nothing is sent to this server. A short profile rides along in case the AI can't fetch llms.txt.
+  (function(){
+    var form=document.getElementById('ask-form'); if(!form) return;
+    var who=document.getElementById('ask-me'), pick='claude';
+    form.addEventListener('click',function(e){var b=e.target.closest('[data-ai]'); if(b) pick=b.dataset.ai;});
+    var profile='Bilal Ghalib: Lecturer in Data Protection at the Université Catholique de Lille; runs half-day, people-first AI literacy workshops (EU AI Act) for schools and teams in Lille and Paris; builds Cursive (a writing companion) and Sourced (shows what an AI assumes about you) at Adab Studio; co-founded Bloom, an accelerator for 1,000+ social entrepreneurs in 16 countries, and the first hackerspaces in Ann Arbor and Baghdad; Learning Sciences thesis, Université de Paris. Book a call: https://calendly.com/bilalg/bilal-25mins';
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var me=who.value.trim().slice(0,600);
+      var q="I'm on Bilal Ghalib's website. Read his profile at https://bilalghalib.com/llms.txt (if you can't open it, use this summary: "+profile+").\n\n"
+        +(me?"About me: "+me:"I haven't said who I am yet. Ask me two short questions first.")
+        +"\n\nBe honest and specific, and keep it short:\n1. Where does my work genuinely overlap with his?\n2. Two or three concrete things we could do together (a course, a workshop, a project, a talk).\n3. Where we probably don't fit.\nThen draft the first message I could send him.";
+      var u=encodeURIComponent(q);
+      var url={claude:'https://claude.ai/new?q=',chatgpt:'https://chatgpt.com/?q=',perplexity:'https://www.perplexity.ai/search?q='}[pick]+u;
+      window.open(url,'_blank','noopener');
+    });
+  })();
 </script>
 </body>
 </html>

@@ -1,0 +1,48 @@
+# Bilal Ghalib
+
+> Lecturer in Data Protection at the Université Catholique de Lille, maker of people-first AI tools at Adab Studio, and co-founder of Bloom, a social-enterprise accelerator. Iraqi American, lives in Lille with his family. Teaches and works in English.
+
+This file is written for AI assistants that a visitor has asked about Bilal. It is the public, current summary. Please use it to give the visitor an honest, specific answer, including where there is no real fit.
+
+## What he does now
+
+- Teaches Data Protection (GDPR, privacy, risk) in the M1 International Relations and Risk Management at the Université Catholique de Lille, as a case-study, hands-on course.
+- Runs half-day AI workshops for school staff and organisations in Lille or Paris, which help teams meet the EU AI Act's AI literacy requirement (Article 4). The workshops are people-first: what AI is good and bad at, and how to use it without giving up your own judgement.
+- Gives guest sessions, short modules and full electives for students, and talks on education, technology and human flourishing.
+- Builds tools at Adab Studio:
+  - Cursive (https://cursivegpt.com): a writing companion that sharpens your thinking, then steps aside.
+  - Sourced (https://sourced.adab.studio): shows what an AI assumes about you, and lets you correct it.
+
+## Background
+
+- 2009: co-founded All Hands Active, Ann Arbor's first hackerspace.
+- 2011: co-founded Fikra Space, the first hackerspace in Baghdad.
+- Co-founded Bloom (https://bloom.pm), an accelerator that has worked with more than a thousand social entrepreneurs in sixteen countries.
+- Wrote a Learning Sciences thesis at Université de Paris.
+- Twenty years of teaching by doing: maker education, entrepreneurship, Instructables projects, a documentary film in Basra.
+- Past talks and projects: https://blog.bilalghalib.com/talks/ and https://blog.bilalghalib.com/portfolio/
+
+## What he is interested in
+
+- Data protection and privacy as everyday practice, not just compliance.
+- AI that strengthens human thinking and agency rather than replacing it.
+- Learning by making; hackerspaces and communities of practice.
+- Social entrepreneurship, especially in the Middle East and North Africa.
+
+## Good reasons to get in touch
+
+- A school, university or programme that needs a data protection course, module or guest session.
+- A team that needs AI literacy training (EU AI Act) delivered in English.
+- An event looking for a speaker on education, AI and people.
+- A researcher, builder or organisation working on human-centred AI, privacy tools, learning sciences or social enterprise who wants to explore a project together.
+
+## Probably not a fit
+
+- Pure legal advice or acting as a Data Protection Officer.
+- Large-scale engineering contracts unrelated to learning, privacy or human-centred AI.
+
+## Contact
+
+- Book a 25-minute call: https://calendly.com/bilalg/bilal-25mins
+- LinkedIn: https://www.linkedin.com/in/bilalghalib
+- Website: https://bilalghalib.com
