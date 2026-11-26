@@ -1,12 +1,20 @@
 # Search engines are welcome, so schools can find this page.
 # AI training crawlers and bulk scrapers are not.
-User-agent: GPTBot
+
+# An AI assistant fetching on a visitor's behalf (the "Ask an AI" section)
+# may read the profile written for it, and nothing else.
 User-agent: ChatGPT-User
+User-agent: Claude-User
+User-agent: Claude-Web
+User-agent: Perplexity-User
+Allow: /llms.txt
+Disallow: /
+
+User-agent: GPTBot
 User-agent: OAI-SearchBot
 User-agent: CCBot
 User-agent: ClaudeBot
 User-agent: anthropic-ai
-User-agent: Claude-Web
 User-agent: Google-Extended
 User-agent: Applebot-Extended
 User-agent: PerplexityBot
